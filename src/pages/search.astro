@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { NAILPOLISH } from '../consts/nail-polish';
+
+// Obtener el parámetro de búsqueda de la URL
+const { searchParams } = Astro.url;
+const query = searchParams.get('q')?.toLowerCase() || '';
+
+// Filtrar los esmaltes basado en la búsqueda
+const searchResults = NAILPOLISH.filter(polish => {
+    const searchableFields = [
+        polish.name,
+        polish.brand,
+        polish.collection,
+        polish.color,
+        polish.feature,
+        polish.id.toString()
+    ].map(field => field.toLowerCase());
+    
+    return searchableFields.some(field => field.includes(query));
+});
+---
+
+<Layout title={`Búsqueda: ${query}`}>
+    <main class="container mx-auto px-4">
+        <h1 class="text-2xl font-bold my-4">
+            {query ? `Resultados para "${query}"` : 'Todos los esmaltes'}
+        </h1>
+        
+        {searchResults.length === 0 ? (
+            <p class="text-gray-600">No se encontraron esmaltes que coincidan con tu búsqueda.</p>
+        ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {searchResults.map(polish => {
+            const isColorLight = (rgbColor: string) => {
+            const rgb = rgbColor.match(/\d+/g);
+            if (!rgb || rgb.length !== 3) return true;
+            
+            const r = parseInt(rgb[0]);
+            const g = parseInt(rgb[1]);
+            const b = parseInt(rgb[2]);
+            
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            return brightness > 128;
+            };
+
+            const textColor = isColorLight(polish.color) ? 'text-black' : 'text-white';
+            // Nueva clase para el SVG
+            const svgFilter = isColorLight(polish.color) ? '' : 'invert brightness-0 contrast-100';
+
+            return (
+            <article class="flex flex-col justify-between border rounded-lg shadow-sm">
+                    <div class="flex flex-col mb-2">
+                        <div class="flex flex-row items-center gap-4">
+                            <h2 class="font-semibold text-lg pt-4 pl-4">{polish.name}</h2>
+                            <img class="w-auto h-9 pt-4" src={`././public/img/nailpolish/${polish.brand}.webp`} alt={`Logo ${polish.brand}`}>
+                        </div>
+                        {polish.collection && (
+                        <p class="text-sm pl-4 text-gray-500">{polish.collection}</p>
+                        )}
+                    </div>
+                <div
+                    style={{ backgroundColor: polish.color}}
+                    class={`w-full mt-3 rounded-b-lg p-3 flex flex-row items-center gap-3 ${textColor}`}
+                >
+                {polish.feature && (
+                    <span class="text-sm">
+                    {polish.feature}
+                    </span>
+                )}
+                    <img 
+                        src={`././public/img/nailpolish/${polish.level}.svg`} 
+                        alt="" 
+                        class={`w-2 ${svgFilter}`}
+                    />
+                </div>
+            </article>
+            );
+        })}
+        </div>
+            <div class="h-20">
+
+            </div>
+        )}
+    </main>
+</Layout>

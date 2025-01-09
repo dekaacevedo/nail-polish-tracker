@@ -1,0 +1,116 @@
+---
+---
+<div class="my-4 mx-0 w-full">
+  <form action="/search" method="GET" class="w-full">
+      <div class="flex items-center bg-white rounded-2xl p-2 shadow">
+          <input
+              type="search"
+              name="q"
+              id="searchInput"
+              placeholder="Buscar esmalte..."
+              class="flex-1 border-none p-2 text-base outline-none bg-transparent"
+          >
+          <button type="submit" class="bg-none border-none p-2 cursor-pointer flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-neutral-500">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+          </button>
+      </div>
+  </form>
+</div>
+
+<div id="scanner-modal" class="fixed top-0 left-0 right-0 bottom-0 bg-black/90 z-50 flex items-center justify-center" style="display: none;">
+  <div class="relative w-full max-w-2xl h-[480px]">
+      <div id="interactive" class="w-full h-full"></div>
+      <button id="closeScanner" class="absolute top-4 right-4 bg-white border-none rounded-3xl w-10 h-10 flex items-center justify-center cursor-pointer">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+      </button>
+  </div>
+</div>
+
+<script>
+let Quagga: any;
+
+async function loadQuagga() {
+  try {
+      const QuaggaModule = await import('@ericblade/quagga2');
+      Quagga = QuaggaModule.default;
+      return true;
+  } catch (error) {
+      console.error('Error loading Quagga2:', error);
+      return false;
+  }
+}
+
+const scannerModal = document.getElementById('scanner-modal');
+const openScannerBtn = document.getElementById('openScanner');
+const closeScannerBtn = document.getElementById('closeScanner');
+const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+
+async function initQuagga() {
+  if (!Quagga) {
+      const loaded = await loadQuagga();
+      if (!loaded) return;
+  }
+
+  Quagga.init({
+      inputStream: {
+          name: "Live",
+          type: "LiveStream",
+          target: document.querySelector("#interactive"),
+          constraints: {
+              facingMode: "environment"
+          },
+      },
+      decoder: {
+          readers: ["ean_reader", "ean_8_reader", "upc_reader", "upc_e_reader"]
+      }
+  }, function(err: any) {
+      if (err) {
+          console.error(err);
+          return;
+      }
+      Quagga.start();
+  });
+
+  Quagga.onDetected(function(result: { codeResult: { code: string; format: string; }; }) {
+        if (result.codeResult.code) {
+            // Agregar logs para ver la información completa
+            console.log("Resultado completo:", result);
+            console.log("Código detectado:", result.codeResult.code);
+            console.log("Formato del código:", result.codeResult.format);
+            
+            if (searchInput) {
+                searchInput.value = result.codeResult.code;
+                // Agregar un pequeño retraso antes de enviar el formulario para poder ver los logs
+                
+            }
+        }
+    });
+}
+
+function openScanner() {
+  if (scannerModal) {
+      scannerModal.style.display = 'flex';
+      initQuagga();
+  }
+}
+
+function closeScanner() {
+  if (scannerModal) {
+      scannerModal.style.display = 'none';
+      if (Quagga) {
+          Quagga.stop();
+      }
+  }
+}
+
+if (openScannerBtn && closeScannerBtn) {
+  openScannerBtn.addEventListener('click', openScanner);
+  closeScannerBtn.addEventListener('click', closeScanner);
+}
+</script>

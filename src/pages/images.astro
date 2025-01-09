@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NailPolishFinder from '../components/NailPolishFinder';
+---
+
+<Layout title="Mis Esmaltes">
+  <main class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Buscador de Esmaltes</h1>
+    <NailPolishFinder client:load />
+  </main>
+</Layout>

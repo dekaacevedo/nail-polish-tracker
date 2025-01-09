@@ -1,0 +1,36 @@
+---
+interface Props {
+  id: number;
+  name: string;
+  brand: string;
+  color: string;
+  level: string;
+  feature: string;
+  text: string;
+  svg: string;
+}
+
+const { name, brand, color, level, id, feature, text, svg } = Astro.props;
+---
+
+<div class="bg-white rounded-3xl pt-5 w-56 h-auto">
+  <div class="w-12 pl-3">
+    <img src={`././public/img/nailpolish/${brand}.webp`} alt={`Logo ${brand}`}>
+  </div>
+  <div class="flex justify-center w-full mb-5">
+    <img src={`././public/img/nailpolish/${id}.webp`} alt={`${brand} ${name}`} class="w-auto object-cover h-[300px] -m-12" />
+  </div>
+  <div style={{ backgroundColor: color, maskImage: 'linear-gradient(to top, black 20%, transparent 100%)'}} class={`flex flex-row justify-between w-full rounded-b-3xl pt-14 px-3 pb-5 items-center gap-3 ${text}`}>
+    <div class="text-left">
+      <h3 class="text-sm font-bold">{name}</h3>
+      <p class="text-xs">{feature}</p>
+    </div>
+    <div>
+      <img 
+      src={`././public/img/nailpolish/${level}.svg`}
+      alt="" 
+      class={`w-4 ${svg}`}
+      />
+    </div>
+  </div>
+</div>
