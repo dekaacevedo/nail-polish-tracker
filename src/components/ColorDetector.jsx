@@ -70,7 +70,7 @@ const ColorDetector = () => {
     // Obtiene los datos de los píxeles del centro del canvas
     const centerX = Math.floor(canvas.width / 2);
     const centerY = Math.floor(canvas.height / 2);
-    const radius = 60; // Área más grande para muestreo // área de muestreo
+    const radius = 70; // Área más grande para muestreo // área de muestreo
     
     context.strokeStyle = 'red';
     context.lineWidth = 2;
