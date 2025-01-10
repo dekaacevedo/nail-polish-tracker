@@ -184,7 +184,7 @@ const ColorDetector = () => {
               WebkitMaskImage: 'radial-gradient(circle at center, transparent 80px, black 41px)',
             }} />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="w-40 h-40 border-2 border-white rounded-full" />
+              <div className="w-30 h-30 border-2 border-white rounded-full" />
             </div>
           </div>
           
