@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Camera, Plus } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { NAILPOLISH } from '../consts/nail-polish';
 
 const ColorDetector = () => {
   const videoRef = useRef(null);
@@ -10,8 +11,8 @@ const ColorDetector = () => {
   const [colorHistory] = useState(Array(10).fill({ r: 0, g: 0, b: 0 }));
   const [isStreaming, setIsStreaming] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  // New state for captured colors
   const [capturedColors, setCapturedColors] = useState([]);
+  const [matchedPolish, setMatchedPolish] = useState(null);
 
   useEffect(() => {
     const startCamera = async () => {
@@ -71,15 +72,6 @@ const ColorDetector = () => {
     const centerX = Math.floor(canvas.width / 2);
     const centerY = Math.floor(canvas.height / 2);
     const radius = 70;
-    
-    context.strokeStyle = 'red';
-    context.lineWidth = 2;
-    context.strokeRect(
-      centerX - radius,
-      centerY - radius * 1.5,
-      radius * 2,
-      radius * 3
-    );
 
     const imageData = context.getImageData(
       centerX - radius,
@@ -114,6 +106,9 @@ const ColorDetector = () => {
 
     setDominantColor(averageColor);
 
+    const closest = findClosestNailPolish(averageColor);
+    setMatchedPolish(closest);
+
     requestAnimationFrame(analyzeFrame);
   };
 
@@ -140,19 +135,59 @@ const ColorDetector = () => {
     return 'Desconocido';
   };
 
-  // New function to capture current color
   const captureColor = () => {
     const colorName = getColorName(dominantColor.r, dominantColor.g, dominantColor.b);
     const capturedColor = {
       ...dominantColor,
       name: colorName,
       timestamp: new Date().toLocaleTimeString(),
+      matchedPolish: matchedPolish ? { ...matchedPolish } : null
     };
     setCapturedColors(prev => [...prev, capturedColor]);
   };
 
   const colorName = getColorName(dominantColor.r, dominantColor.g, dominantColor.b);
   const rgbString = `rgb(${dominantColor.r}, ${dominantColor.g}, ${dominantColor.b})`;
+
+  const getColorDistance = (color1, color2) => {
+    return Math.sqrt(
+      Math.pow(color1.r - color2.r, 2) +
+      Math.pow(color1.g - color2.g, 2) +
+      Math.pow(color1.b - color2.b, 2)
+    );
+  };
+
+  const parseRgb = (rgbStr) => {
+    const matches = rgbStr.match(/rgb\((\d+)\s+(\d+)\s+(\d+)\)/);
+    if (!matches) return null;
+    return {
+      r: parseInt(matches[1]),
+      g: parseInt(matches[2]),
+      b: parseInt(matches[3])
+    };
+  };
+
+  const findClosestNailPolish = (detectedColor) => {
+    let closestPolish = null;
+    let minDistance = Infinity;
+
+    console.log('Detected Color:', detectedColor);
+    console.log('Available Polishes:', NAILPOLISH);
+  
+    NAILPOLISH.forEach(polish => {
+      const polishRGB = parseRgb(polish.color);
+      console.log('Parsed Polish RGB:', polishRGB, 'from:', polish.color);
+      if (!polishRGB) return;
+  
+      const distance = getColorDistance(detectedColor, polishRGB);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestPolish = { ...polish, distance };
+      }
+    });
+  
+    return closestPolish;
+  };
 
   return (
     <Card className="w-full max-w-2xl mx-auto mb-20">
@@ -164,6 +199,7 @@ const ColorDetector = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
+          {/* Sección del video */}
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
             <video
               ref={videoRef}
@@ -191,8 +227,33 @@ const ColorDetector = () => {
               <div className="w-24 h-24 border-2 border-white rounded-full" />
             </div>
           </div>
-          
-          <div className="flex items-center justify-center">
+
+          {/* Color actual y botón de captura */}
+          <div className="flex items-center justify-between p-4 border rounded-lg">
+            <div className="flex items-center gap-4">
+              <div
+                className="w-16 h-16 rounded-lg shadow-inner"
+                style={{ backgroundColor: rgbString }}
+              />
+              <div>
+                <p className="text-sm text-gray-500">{rgbString}</p>
+                {matchedPolish && (
+                  <div className="mt-1">
+                    <p className="font-medium">Esmalte más cercano:</p>
+                    <p className="text-sm">{matchedPolish.name}</p>
+                    <div className="flex items-center gap-2 mt-1">
+                      <div
+                        className="w-4 h-4 rounded-full border"
+                        style={{ backgroundColor: matchedPolish.color }}
+                      />
+                      <span className="text-xs text-gray-500">
+                        {matchedPolish.color.replace(/\s+/g, ', ')}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
             <Button 
               onClick={captureColor}
               className="flex items-center gap-2"
@@ -202,22 +263,35 @@ const ColorDetector = () => {
             </Button>
           </div>
 
+          {/* Lista de colores capturados */}
           {capturedColors.length > 0 && (
             <div className="mt-6">
-              <h3 className="text-lg font-semibold mb-3">Colores Capturados</h3>
               <div className="grid grid-cols-2 gap-3">
                 {capturedColors.map((color, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 rounded-lg border">
+                  <div key={index} className="flex items-center gap-3 p-4 border rounded-lg">
                     <div
                       className="w-12 h-12 rounded-lg shadow-inner"
                       style={{ backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})` }}
                     />
                     <div>
-                      <p className="font-medium">{color.name}</p>
                       <p className="text-sm text-gray-500">
                         rgb({color.r}, {color.g}, {color.b})
                       </p>
-                      <p className="text-xs text-gray-400">{color.timestamp}</p>
+                      {color.matchedPolish && (
+                        <div className="mt-1">
+                          <p className="text-sm font-medium">{color.matchedPolish.name}</p>
+                          <div className="flex items-center gap-2">
+                            <div
+                              className="w-3 h-3 rounded-full border"
+                              style={{ backgroundColor: color.matchedPolish.color }}
+                            />
+                            <span className="text-xs text-gray-500">
+                              {color.matchedPolish.color.replace(/\s+/g, ', ')}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                      <p className="text-xs text-gray-400 mt-1">{color.timestamp}</p>
                     </div>
                   </div>
                 ))}
