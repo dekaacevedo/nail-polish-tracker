@@ -9,6 +9,8 @@ const ColorDetector = () => {
   const [colorHistory] = useState(Array(10).fill({ r: 0, g: 0, b: 0 })); // Historial para suavizar
   const [isStreaming, setIsStreaming] = useState(false);
 
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
   useEffect(() => {
     const startCamera = async () => {
       try {
@@ -34,6 +36,24 @@ const ColorDetector = () => {
       if (videoRef.current?.srcObject) {
         videoRef.current.srcObject.getTracks().forEach(track => track.stop());
       }
+    };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+  
+    const handleLoadedMetadata = () => {
+      setDimensions({
+        width: video.videoWidth,
+        height: video.videoHeight
+      });
+    };
+  
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    
+    return () => {
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
     };
   }, []);
 
@@ -129,7 +149,7 @@ const ColorDetector = () => {
   const rgbString = `rgb(${dominantColor.r}, ${dominantColor.g}, ${dominantColor.b})`;
 
   return (
-    <Card className="w-full max-w-2xl mx-auto">
+    <Card className="w-full max-w-2xl mx-auto mb-20">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Camera className="h-6 w-6" />
@@ -175,6 +195,10 @@ const ColorDetector = () => {
             <div>
               <p className="text-lg font-semibold">{colorName}</p>
               <p className="text-sm text-gray-500">{rgbString}</p>
+              <p className="text-sm text-gray-500">
+                {dimensions.width}x{dimensions.height} 
+                ({(dimensions.width/dimensions.height).toFixed(2)})
+              </p>
             </div>
           </div>
         </div>
