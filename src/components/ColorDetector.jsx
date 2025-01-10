@@ -14,8 +14,8 @@ const ColorDetector = () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ 
           video: { 
-            width: 720,
-            height: 1280,
+            width: 480,
+            height: 640, 
             facingMode: 'environment'
           } 
         });
@@ -138,7 +138,7 @@ const ColorDetector = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          <div className="relative aspect-[9/16] rounded-lg overflow-hidden bg-gray-100">
+          <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
             <video
               ref={videoRef}
               autoPlay
@@ -147,8 +147,8 @@ const ColorDetector = () => {
             />
             <canvas
               ref={canvasRef}
-              width="720"
-              height="1280"
+              width="480"
+              height="640"
               className="absolute top-0 left-0 w-full h-full pointer-events-none"
             />
             <div style={{
