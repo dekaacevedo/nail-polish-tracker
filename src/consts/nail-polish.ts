@@ -3,7 +3,7 @@ export const NAILPOLISH = [
         id: 954478,
         name: "Verniz Extra Brilho",
         feature: "cobertura espelhada",
-        brand: "Impala",
+        brand: "impala",
         collection: "",
         level: "medio",
         color: "rgb(218 203 229)"
@@ -13,7 +13,7 @@ export const NAILPOLISH = [
         id: 998076,
         name: "Potencia máxima",
         feature: "metal like",
-        brand: "Impala",
+        brand: "impala",
         collection: "JUPAES",
         level: "alto",
         color: "rgb(20 91 138)"
@@ -23,7 +23,7 @@ export const NAILPOLISH = [
         id: 996829,
         name: "Sambaqui sambalá",
         feature: "cremoso",
-        brand: "Impala",
+        brand: "impala",
         collection: "JUPAES",
         level: "alto",
         color: "rgb(149 53 149)"
