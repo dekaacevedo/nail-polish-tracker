@@ -158,7 +158,7 @@ const ColorDetector = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          <div className="relative aspect-[2/3] rounded-lg overflow-hidden bg-gray-100">
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
             <video
               ref={videoRef}
               autoPlay
