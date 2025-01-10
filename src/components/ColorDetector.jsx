@@ -180,7 +180,7 @@ const ColorDetector = () => {
               bottom: 0,
               backgroundColor: 'rgba(0, 0, 0, 0.7)',
               // Creamos un agujero circular usando radial-gradient
-              maskImage: 'radial-gradient(circle at center, transparent 40px, black 36px)',
+              maskImage: 'radial-gradient(circle at center, transparent 36px, black 36px)',
               WebkitMaskImage: 'radial-gradient(circle at center, transparent 56px, black 41px)',
             }} />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
