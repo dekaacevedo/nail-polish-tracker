@@ -1,11 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NailPolishFinder from '../components/NailPolishFinder';
+
+
 ---
 
 <Layout title="Mis Esmaltes">
-  <main class="container mx-auto p-4">
+  <main class=" mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Buscador de Esmaltes</h1>
-    <NailPolishFinder client:load />
+
+    <div class="flex flex-col gap-2 items-center justify-center">
+      <a href="/detect" class="w-96 bg-purple-600 hover:bg-purple-700 rounded-lg p-4 flex items-center justify-center gap-2 text-white font-bold transition-colors">
+        <img src="https://unpkg.com/lucide-static@latest/icons/camera.svg" class="invert brightness-0 contrast-100" alt="">
+        Detectar color
+      </a>
+
+      <input type="file" accept="image/*" id="file-upload" class="hidden">
+      <label for="file-upload" class="w-96 font-bold bg-gray-600 hover:bg-gray-700 text-white p-4 rounded-lg flex items-center justify-center gap-2 cursor-pointer transition-colors">
+        <img src="https://unpkg.com/lucide-static@latest/icons/image.svg" class="invert brightness-0 contrast-100" alt="">
+        Subir imagen
+      </label>
+    </div>
+
+
+    <div>
+      
+    </div>
   </main>
 </Layout>
+
+
