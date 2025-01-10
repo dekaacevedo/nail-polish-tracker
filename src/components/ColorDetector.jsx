@@ -14,8 +14,8 @@ const ColorDetector = () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ 
           video: { 
-            width: 640,
-            height: 480,
+            width: 720,
+            height: 1280,
             facingMode: 'environment'
           } 
         });
@@ -50,7 +50,7 @@ const ColorDetector = () => {
     // Obtiene los datos de los píxeles del centro del canvas
     const centerX = Math.floor(canvas.width / 2);
     const centerY = Math.floor(canvas.height / 2);
-    const radius = 30; // Área más grande para muestreo // área de muestreo
+    const radius = 60; // Área más grande para muestreo // área de muestreo
     
     context.strokeStyle = 'red';
     context.lineWidth = 2;
@@ -138,7 +138,7 @@ const ColorDetector = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
+          <div className="relative aspect-[9/16] rounded-lg overflow-hidden bg-gray-100">
             <video
               ref={videoRef}
               autoPlay
@@ -147,8 +147,8 @@ const ColorDetector = () => {
             />
             <canvas
               ref={canvasRef}
-              width="640"
-              height="480"
+              width="720"
+              height="1280"
               className="absolute top-0 left-0 w-full h-full pointer-events-none"
             />
             <div style={{
