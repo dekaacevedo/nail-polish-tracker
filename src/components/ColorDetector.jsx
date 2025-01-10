@@ -76,16 +76,17 @@ const ColorDetector = () => {
     context.lineWidth = 2;
     context.strokeRect(
       centerX - radius,
-      centerY - radius,
+      centerY - radius * 1.5,
       radius * 2,
-      radius * 2
+      radius * 3
+      
     );
 
     const imageData = context.getImageData(
       centerX - radius,
-      centerY - radius,
+      centerY - radius * 1.5,
       radius * 2,
-      radius * 2
+      radius * 3
     );
 
     // Calcula el color promedio
@@ -179,11 +180,11 @@ const ColorDetector = () => {
               bottom: 0,
               backgroundColor: 'rgba(0, 0, 0, 0.7)',
               // Creamos un agujero circular usando radial-gradient
-              maskImage: 'radial-gradient(circle at center, transparent 40px, black 41px)',
-              WebkitMaskImage: 'radial-gradient(circle at center, transparent 40px, black 41px)',
+              maskImage: 'radial-gradient(circle at center, transparent 80px, black 41px)',
+              WebkitMaskImage: 'radial-gradient(circle at center, transparent 80px, black 41px)',
             }} />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="w-20 h-20 border-2 border-white rounded-full" />
+              <div className="w-40 h-40 border-2 border-white rounded-full" />
             </div>
           </div>
           
