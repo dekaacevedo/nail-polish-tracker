@@ -44,7 +44,7 @@ export const NAILPOLISH = [
         name: "Regendo minha história",
         feature: "cremoso",
         brand: "risque",
-        collection: "BRIDGERTON",
+        collection: "Bridgerton",
         level: "alto",
         color: "rgb(188 64 116)"
 
@@ -109,6 +109,86 @@ export const NAILPOLISH = [
         color: "rgb(247 149 1)"
 
     },
+    {
+        id: 7896111917596,
+        name: "Sublime",
+        feature: "glitter",
+        brand: "impala",
+        collection: "a cor da sua moda",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    },
+    {
+        id: 7896111986905,
+        name: "Cheia de Manias",
+        feature: "full colors",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    },
+    {
+        id: 7896111999028,
+        name: "Roça Rosa",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "Ana Castela",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    },
+    {
+        id: 7896111999189,
+        name: "Sou do mato",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "Ana Castela",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    },
+    {
+        id: 7896111998618,
+        name: "Faça sua manobra",
+        feature: "cremoso - suplementado",
+        brand: "impala",
+        collection: "Movimenta!",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    },
+    {
+        id: 7896111986820,
+        name: "Sabe que é gostosa",
+        feature: "full colors",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    },
+    {
+        id: 7896111996362,
+        name: "lavanda pacífica",
+        feature: "com suave fragancia",
+        brand: "impala",
+        collection: "Acalmamente",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    },
+    {
+        id: 7891350042214,
+        name: "A Autora Revelado",
+        feature: "metálico",
+        brand: "risque",
+        collection: "Bridgerton",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    }
 
     
 ]
