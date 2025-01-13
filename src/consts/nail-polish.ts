@@ -116,7 +116,7 @@ export const NAILPOLISH = [
         brand: "impala",
         collection: "a cor da sua moda",
         level: "alto",
-        color: "rgb(247 149 1)"
+        color: "rgb(224 221 210)"
 
     },
     {
@@ -126,7 +126,7 @@ export const NAILPOLISH = [
         brand: "impala",
         collection: "JUPAES",
         level: "alto",
-        color: "rgb(247 149 1)"
+        color: "rgb(133 48 80)"
 
     },
     {
@@ -136,7 +136,7 @@ export const NAILPOLISH = [
         brand: "impala",
         collection: "Ana Castela",
         level: "alto",
-        color: "rgb(247 149 1)"
+        color: "rgb(161 39 129)"
 
     },
     {
@@ -146,7 +146,7 @@ export const NAILPOLISH = [
         brand: "impala",
         collection: "Ana Castela",
         level: "alto",
-        color: "rgb(247 149 1)"
+        color: "rgb(124 127 87)"
 
     },
     {
@@ -156,7 +156,7 @@ export const NAILPOLISH = [
         brand: "impala",
         collection: "Movimenta!",
         level: "alto",
-        color: "rgb(247 149 1)"
+        color: "rgb(205 145 176)"
 
     },
     {
@@ -166,7 +166,7 @@ export const NAILPOLISH = [
         brand: "impala",
         collection: "JUPAES",
         level: "alto",
-        color: "rgb(247 149 1)"
+        color: "rgb(160 43 45)"
 
     },
     {
@@ -176,7 +176,7 @@ export const NAILPOLISH = [
         brand: "impala",
         collection: "Acalmamente",
         level: "alto",
-        color: "rgb(247 149 1)"
+        color: "rgb(205 181 216)"
 
     },
     {
@@ -186,7 +186,7 @@ export const NAILPOLISH = [
         brand: "risque",
         collection: "Bridgerton",
         level: "alto",
-        color: "rgb(247 149 1)"
+        color: "rgb(48 25 68)"
 
     }
 
