@@ -58,7 +58,57 @@ export const NAILPOLISH = [
         level: "medio",
         color: "rgb(255 255 255)"
 
-    }
+    },
+    {
+        id: 7896111996850,
+        name: "Brasiliana",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(227 64 115)"
+
+    },
+    {
+        id: 7896111996812,
+        name: "Tudo vira festa",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(5 175 198)"
+
+    },
+    {
+        id: 7896111996874,
+        name: "Bonita por natureza",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(0 120 107)"
+
+    },
+    {
+        id: 7896111996805,
+        name: "Pode chegar!",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(79 90 215)"
+
+    },
+    {
+        id: 7896111996867,
+        name: "Fut&Sol",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(247 149 1)"
+
+    },
 
     
 ]
