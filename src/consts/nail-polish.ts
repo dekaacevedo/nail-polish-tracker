@@ -188,7 +188,63 @@ export const NAILPOLISH = [
         level: "alto",
         color: "rgb(48 25 68)"
 
-    }
+    },
+    {
+        id: 7896111998892,
+        name: "VitaGlow",
+        feature: "top coat suplementado",
+        brand: "impala",
+        collection: "Movimenta!",
+        level: "alto",
+        color: "rgb(212 213 207)"
+
+    },
+    {
+        id: 7896111998014,
+        name: "Pilote a sua jornada",
+        feature: "metal like",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(171 180 182)"
+
+    },
+    {
+        id: 7896111913895,
+        name: "neném perolado",
+        feature: "",
+        brand: "impala",
+        collection: "a cor da sua moda",
+        level: "alto",
+        color: "rgb(221 220 227)"
+    },    
+    {
+        id: 7896111998779,
+        name: "Nadar de braçada",
+        feature: "cremoso - suplementado",
+        brand: "impala",
+        collection: "Movimenta!",
+        level: "alto",
+        color: "rgb(164 182 209)"
+    },    
+    {
+        id: 7896111998052,
+        name: "Sem limites",
+        feature: "metal like",
+        brand: "impala",
+        collection: "Movimenta!",
+        level: "alto",
+        color: "rgb(134 110 171)"
+    },    
+    {
+        id: 7896111926963,
+        name: "lolita",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "a cor da sua moda",
+        level: "alto",
+        color: "rgb(225 225 223)"
+    },    
 
     
 ]
