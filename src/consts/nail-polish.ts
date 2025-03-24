@@ -254,5 +254,41 @@ export const NAILPOLISH = [
         level: "alto",
         color: "rgb(142 133 138)"
     },
+    {
+        id: 7896111999226,
+        name: "solta o agronejo!",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "Ana Castela",
+        level: "alto",
+        color: "rgb(120, 67, 168)"
+    },
+    {
+        id: 7896111999301,
+        name: "estrela do rodeio",
+        feature: "glitter",
+        brand: "impala",
+        collection: "Ana Castela",
+        level: "alto",
+        color: "rgb(208, 207, 203)"
+    },
+    {
+        id: 7896111985830,
+        name: "comemore a vida",
+        feature: "glitter 3D",
+        brand: "impala",
+        collection: "VIVA, AME & BRILHE",
+        level: "alto",
+        color: "rgb(169, 152, 112)"
+    },
+    {
+        id: 7896111996485,
+        name: "ficar na boa",
+        feature: "com suave fragancia",
+        brand: "impala",
+        collection: "Acalmamente",
+        level: "alto",
+        color: "rgb(165, 186, 182)"
+    },
     
 ]
