@@ -29,6 +29,24 @@ export const NAILPOLISH = [
         color: "rgb(226, 221, 174)"
     },
     {
+        id: 7896111994313,
+        name: "Base forca extrema",
+        feature: "com biotina, metionina e silicio",
+        brand: "impala",
+        collection: "",
+        level: "medio",
+        color: "rgb(226, 221, 174)"
+    },
+    {
+        id: 7896111921708,
+        name: "base vitaminada",
+        feature: "tratamento",
+        brand: "impala",
+        collection: "",
+        level: "medio",
+        color: "rgb(226, 221, 174)"
+    },
+    {
         id: 7896111917596,
         name: "Sublime",
         feature: "glitter",
@@ -103,6 +121,15 @@ export const NAILPOLISH = [
         color: "rgb(205, 80, 102)"
     },
     {
+        id: 7896111996409,
+        name: "zen stress",
+        feature: "com suave fragancia",
+        brand: "impala",
+        collection: "Acalmamente",
+        level: "alto",
+        color: "rgb(223, 173, 128)"
+    },
+    {
         id: 7896111999028,
         name: "Roça Rosa",
         feature: "cremoso",
@@ -141,6 +168,33 @@ export const NAILPOLISH = [
         color: "rgb(208, 207, 203)"
     },
     {
+        id: 7896111999141,
+        name: "SEGURA A FIVELA",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "Ana Castela",
+        level: "alto",
+        color: "rgb(173, 98, 82)"
+    },
+    {
+        id: 7896111999066,
+        name: "LACADA PERFEITA",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "Ana Castela",
+        level: "alto",
+        color: "rgb(173, 98, 82)"
+    },
+    {
+        id: 7896111998984,
+        name: "BOTA O CHAPEU",
+        feature: "cremoso",
+        brand: "impala",
+        collection: "Ana Castela",
+        level: "alto",
+        color: "rgb(173, 98, 82)"
+    },
+    {
         id: 7891350042160,
         name: "Regendo minha história",
         feature: "cremoso",
@@ -163,6 +217,16 @@ export const NAILPOLISH = [
     {
         id: 7417045429,
         name: "Black to Black",
+        feature: "",
+        brand: "sally-hansen",
+        collection: "INSTA-DRI",
+        level: "alto",
+        color: "rgb(0 0 0)"
+
+    },
+    {
+        id: 7417045410,
+        name: "ASAP Apple",
         feature: "",
         brand: "sally-hansen",
         collection: "INSTA-DRI",
@@ -271,6 +335,24 @@ export const NAILPOLISH = [
         color: "rgb(171 180 182)"
     },
     {
+        id: 7896111987025,
+        name: "DOMINA O MEU CORACAO",
+        feature: "pincel FLAT",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(171 180 182)"
+    },
+    {
+        id: 7896111998997,
+        name: "Confiante e imprevisivel",
+        feature: "metal like",
+        brand: "impala",
+        collection: "JUPAES",
+        level: "alto",
+        color: "rgb(171 180 182)"
+    },
+    {
         id: 7896111998892,
         name: "VitaGlow",
         feature: "top coat suplementado",
@@ -306,6 +388,56 @@ export const NAILPOLISH = [
         collection: "Movimenta!",
         level: "alto",
         color: "rgb(205 145 176)"
+
+    }, 
+    {
+        id: 7896111998816,
+        name: "Segura essa barra",
+        feature: "cremoso - suplementado",
+        brand: "impala",
+        collection: "Movimenta!",
+        level: "alto",
+        color: "rgb(205 145 176)"
+
+    }, 
+    {
+        id: 7896111998854,
+        name: "Segue a trilha",
+        feature: "cremoso - suplementado",
+        brand: "impala",
+        collection: "Movimenta!",
+        level: "alto",
+        color: "rgb(205 145 176)"
+
+    },
+    {
+        id: 7896111998731,
+        name: "Alongada e plena",
+        feature: "cremoso - suplementado",
+        brand: "impala",
+        collection: "Movimenta!",
+        level: "alto",
+        color: "rgb(205 145 176)"
+
+    },
+    {
+        id: 7896111998694,
+        name: "Naquele pique",
+        feature: "cremoso - suplementado",
+        brand: "impala",
+        collection: "Movimenta!",
+        level: "alto",
+        color: "rgb(205 145 176)"
+
+    }, 
+    {
+        id: 7896111998397,
+        name: "Base revitalizante com fibras",
+        feature: "Acido Hialuronico + AHA",
+        brand: "impala",
+        collection: "REVITA nail",
+        level: "alto",
+        color: "rgb(255 255 255)"
 
     },   
     {
