@@ -245,6 +245,14 @@ export const NAILPOLISH = [
         level: "alto",
         color: "rgb(225 225 223)"
     },    
-
+    {
+        id: 7896111985793,
+        name: "brilhe como diamante",
+        feature: "glitter 3D",
+        brand: "impala",
+        collection: "VIVA, AME & BRILHE",
+        level: "alto",
+        color: "rgb(142 133 138)"
+    },
     
 ]
