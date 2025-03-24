@@ -20,7 +20,7 @@ const { name, brand, color, level, id, feature, text, svg } = Astro.props;
   <div class="flex justify-center w-full mb-5">
     <img src={`https://nailpolish.s3.us-east-1.amazonaws.com/nailpolish/${id}.webp`} alt={`${brand} ${name}`} class="w-auto object-cover h-[300px] -m-12" />
   </div>
-  <div style={{ backgroundColor: color, maskImage: 'linear-gradient(to top, black 20%, transparent 100%)'}} class={`flex flex-row justify-between w-full rounded-b-3xl pt-14 px-3 h-full items-center gap-3 ${text}`}>
+  <div style={{ backgroundColor: color, maskImage: 'linear-gradient(to top, black 20%, transparent 100%)'}} class={`flex flex-row justify-between w-full rounded-b-3xl pt-14 px-3 h-auto items-center gap-3 ${text}`}>
     <div class="text-left">
       <h3 class="text-sm font-bold">{name}</h3>
       <p class="text-xs">{feature}</p>
